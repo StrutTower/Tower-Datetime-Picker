@@ -580,6 +580,12 @@
             '                </tbody>'+
             '            </table>'+
             '        </div>'+
+            '        '+
+            '    </div>'+
+            '    <div class="twr-date-picker-footer">'+
+            '        <div class="twr-date-picker-button-panel" data-ng-show="settings.showClearButton">'+
+            '            <button type="button" data-ng-click="clearModel()">Clear Date/Time</button>'+
+            '        </div>'+
             '    </div>'+
             '</div>');
     }
