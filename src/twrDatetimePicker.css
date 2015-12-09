@@ -1,0 +1,251 @@
+.twr-date-picker-template.hide-picker .twr-date-picker-container {
+    display: none;
+}
+
+.twr-date-picker-template {
+    display: inline-block;
+    position: relative;
+}
+
+.twr-date-picker-template > input {
+    max-width: 100%;
+}
+
+.twr-date-picker-template > input[readonly] {
+    color: black;
+    background: white;
+}
+
+.twr-date-picker-template .twr-date-picker-container {
+    z-index: 500;
+    padding: 5px;
+    top: 100%;
+    right: 0;
+    position: absolute;
+    background: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px #444;
+    width: 230px;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-header {
+    width: 100%;
+    display: inline-block;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-header .twr-date-picker-title {
+    display: block;
+    text-align: center;
+    padding: 1em 3em;
+    cursor: pointer;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-header a.chevrons {
+    padding: 1em;
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-header a.chevrons:visited,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-header a.chevrons:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-header .twr-date-picker-header-button-left {
+    float: left;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-header .twr-date-picker-header-button-right {
+    float: right;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body {
+    display: inline-block;
+    width: 100%;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-year table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table thead tr th,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-year table thead tr th {
+    border-bottom: #ccc solid 1px;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table td,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-year table td {
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table td:hover,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-year table td:hover {
+    background: #e3e3e3;
+    border-radius: 5px;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table td.other-month,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-year table td.other-month {
+    color: #888;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table td.now,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-year table td.now {
+    color: black;
+    background: #bfbfbf;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table td.selected,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-year table td.selected {
+    color: white;
+    background: #337ab7;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table td,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table th {
+    font-weight: normal;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-year table td,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-year table th {
+    font-weight: normal;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-time-view table {
+    width: 130px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-time-view table a.chevrons {
+    padding: 0.7em 0;
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    width: 50px;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-time-view table a.chevrons:visited,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-time-view table a.chevrons:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-time-view table a.chevrons:hover {
+    background: #e3e3e3;
+    border-radius: 5px;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-time-view table td.time-spacer-col {
+    width: 5px;
+    padding: 0 2px;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-time-view table input {
+    width: 50px;
+    text-align: center;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-time-view table input::-webkit-inner-spin-button,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-time-view table input::-webkit-outer-spin-button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-footer .twr-date-picker-button-panel {
+    text-align: center;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-footer .twr-date-picker-button-panel button {
+    margin: 0 auto;
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0.5em 1em;
+    color: #333;
+    border: 1px solid #ccc;
+    background: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    outline: none;
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-transition: background 0.2s ease-in-out, border-color 0.3s ease-in-out;
+    -o-transition: background 0.2s ease-in-out, border-color 0.3s ease-in-out;
+    -webkit-transition: background 0.2s ease-in-out, border-color 0.3s ease-in-out;
+    transition: background 0.2s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-footer .twr-date-picker-button-panel button:hover,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-footer .twr-date-picker-button-panel button:focus {
+    background: #ebebeb;
+    border-color: #adadad;
+    color: #333;
+    text-decoration: none;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-footer .twr-date-picker-button-panel button:active {
+    outline: none;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-footer .twr-date-picker-button-panel button:visited {
+    color: #333;
+}
+
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-footer .twr-date-picker-button-panel button:disabled,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-footer .twr-date-picker-button-panel button:disabled:hover,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-footer .twr-date-picker-button-panel button:disabled:active,
+.twr-date-picker-template .twr-date-picker-container .twr-date-picker-footer .twr-date-picker-button-panel button:disabled:focus {
+    background: #e6e6e6;
+    border-color: #ccc;
+    color: gray;
+    box-shadow: none;
+}
+
+@media screen and (max-width: 480px) {
+    .twr-date-picker-template {
+        width: 100%;
+    }
+    .twr-date-picker-template input {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 599px) {
+    .twr-date-picker-template .twr-date-picker-container {
+        width: 250px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .twr-date-picker-template .twr-date-picker-container {
+        width: 300px;
+    }
+}
