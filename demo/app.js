@@ -11,6 +11,6 @@
 
     function demoController() {
         var vm = this;
-
+        vm.date5 = new Date();
     }
 })();

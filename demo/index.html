@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="DatePickerDemo">
+<head>
+    <title data-ng-bind="title + serverInfo.applicationName">Date Picker Demo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+
+    <link rel="stylesheet" href="../src/twrDatetimePicker.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <style>
+        label {
+            display:block;
+        }
+        code {
+            display:block;
+            color:#DCDCDC;
+            background:#1E1E1E;
+            padding:10px;
+            margin:10px;
+            border-radius:4px;
+        }
+        .code-group {
+            background:#1E1E1E;
+            border-radius:4px;
+            margin:10px;
+            padding:10px;
+        }
+        .code-group code {
+            margin:0;
+            padding-top:2px;
+            padding-bottom:2px;
+        }
+    </style>
+</head>
+<body data-ng-controller="DemoController as vm">
+    <div>
+        <p>
+            <label>Date and Time Picker:</label>
+            <input data-ng-model="vm.date1" data-twr-datetime-picker />
+            <code>
+                <span style="color: #569CD6">&lt;input</span>
+                <span style="color: #9CDCFE">data-ng-model=</span><span>&quot;vm.date1&quot;</span>
+                <span style="color: #9CDCFE">data-twr-datetime-picker</span>
+                <span style="color: #569CD6">/&gt;</span>
+            </code>
+        </p>
+
+        <p>
+            <label>Date Picker Only:</label>
+            <input data-ng-model="vm.date2" data-twr-datetime-picker data-hide-time-picker />
+            <code>
+                <span style="color: #569CD6">&lt;input</span>
+                <span style="color: #9CDCFE">data-ng-model=</span><span>&quot;vm.date2&quot;</span>
+                <span style="color: #9CDCFE">data-twr-datetime-picker</span>
+                <span style="color: #9CDCFE">data-hide-time-picker</span>
+                <span style="color: #569CD6">/&gt;</span>
+            </code>
+        </p>
+
+        <p>
+            <label>Auto Close (Only works on date picker only setup):</label>
+            <input data-ng-model="vm.date3" data-twr-datetime-picker data-hide-time-picker data-auto-close />
+            <code>
+                <span style="color: #569CD6">&lt;input</span>
+                <span style="color: #9CDCFE">data-ng-model=</span><span>&quot;vm.date3&quot;</span>
+                <span style="color: #9CDCFE">data-twr-datetime-picker</span>
+                <span style="color: #9CDCFE">data-hide-time-picker</span>
+                <span style="color: #9CDCFE">data-auto-close</span>
+                <span style="color: #569CD6">/&gt;</span>
+            </code>
+        </p>
+
+        <p>
+            <label>Show Clear Model Button (Allows removing the model since the input is readonly):</label>
+            <input data-ng-model="vm.date4" data-twr-datetime-picker data-show-clear-button />
+            <code>
+                <span style="color: #569CD6">&lt;input</span>
+                <span style="color: #9CDCFE">data-ng-model=</span><span>&quot;vm.date4&quot;</span>
+                <span style="color: #9CDCFE">data-twr-datetime-picker</span>
+                <span style="color: #9CDCFE">data-show-clear-button</span>
+                <span style="color: #569CD6">/&gt;</span>
+            </code>
+        </p>
+
+        <p>
+            <label>Custom Date/Time Format (Uses the <a href="https://docs.angularjs.org/api/ng/filter/date" target="_blank">AngularJS date filter</a>):</label>
+            <input data-ng-model="vm.date5" data-twr-datetime-picker data-date-format="medium" /><br />
+            <input data-ng-model="vm.date5" data-twr-datetime-picker data-date-format="MMM d, y H:mm:ss" /><br />
+            <input data-ng-model="vm.date5" data-twr-datetime-picker data-hide-time-picker data-date-format="MMMM d, yyyy" />
+
+            <div class="code-group">
+                <code>
+                    <span style="color: #569CD6">&lt;input</span>
+                    <span style="color: #9CDCFE">data-ng-model=</span><span>&quot;vm.date5&quot;</span>
+                    <span style="color: #9CDCFE">data-twr-datetime-picker</span>
+                    <span style="color: #9CDCFE">data-date-format=</span><span>&quot;medium&quot;</span>
+                    <span style="color: #569CD6">/&gt;</span>
+                </code>
+                <code>
+                    <span style="color: #569CD6">&lt;input</span>
+                    <span style="color: #9CDCFE">data-ng-model=</span><span>&quot;vm.date5&quot;</span>
+                    <span style="color: #9CDCFE">data-twr-datetime-picker</span>
+                    <span style="color: #9CDCFE">data-date-format=</span><span>&quot;MMM d, y H:mm:ss&quot;</span>
+                    <span style="color: #569CD6">/&gt;</span>
+                </code>
+                <code>
+                    <span style="color: #569CD6">&lt;input</span>
+                    <span style="color: #9CDCFE">data-ng-model=</span><span>&quot;vm.date5&quot;</span>
+                    <span style="color: #9CDCFE">data-twr-datetime-picker</span>
+                    <span style="color: #9CDCFE">data-hide-time-picker</span>
+                    <span style="color: #9CDCFE">data-date-format=</span><span>&quot;MMMM d, yyyy&quot;</span>
+                    <span style="color: #569CD6">/&gt;</span>
+                </code>
+            </div>
+        </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="../src/twrDatetimePicker.js"></script>
+</body>
+</html>

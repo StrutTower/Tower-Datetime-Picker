@@ -1,109 +1,113 @@
-﻿<div class="twr-date-picker-container">
-    <div class="twr-date-picker-header">
-        <div class="twr-date-picker-header-button-left" data-ng-hide="settings.currentView == 'time'">
-            <a href="" class="chevrons" data-ng-click="previous()">
-                <i class="fa fa-chevron-left"></i>
-            </a>
+﻿<div class="twr-date-picker-template">
+    <div class="twr-date-picker-container">
+        <div class="twr-date-picker-header">
+            <div class="twr-date-picker-header-button-left" data-ng-hide="settings.currentView == 'time'">
+                <a href="" class="chevrons" data-ng-click="previous()">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
 
+            </div>
+
+            <div class="twr-date-picker-header-button-right" data-ng-hide="settings.currentView == 'time'">
+                <a href="" class="chevrons" data-ng-click="next()">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <div class="twr-date-picker-title"
+                 data-ng-click="previousView()"
+                 data-ng-switch data-on="settings.currentView">
+                <span data-ng-switch-when="time">
+                    {{date.display | date: 'MM/dd/yyyy'}}
+                </span>
+                <span data-ng-switch-when="month">
+                    {{date.display | date: 'MMMM'}} {{date.display | date: 'yyyy'}}
+                </span>
+                <span data-ng-switch-when="year">
+                    {{date.display | date: 'yyyy'}}
+                </span>
+            </div>
         </div>
 
-        <div  class="twr-date-picker-header-button-right" data-ng-hide="settings.currentView == 'time'">
-            <a href="" class="chevrons" data-ng-click="next()">
-                <i class="fa fa-chevron-right"></i>
-            </a>
-        </div>
+        <div></div>
 
-        <div class="twr-date-picker-title"
-             data-ng-click="previousView()"
-             data-ng-switch data-on="settings.currentView">
-            <span data-ng-switch-when="time">
-                {{date.display | date: 'MM/dd/yyyy'}}
-            </span>
-            <span data-ng-switch-when="month">
-                {{date.display | date: 'MMMM'}} {{date.display | date: 'yyyy'}}
-            </span>
-            <span data-ng-switch-when="year">
-                {{date.display | date: 'yyyy'}}
-            </span>
+        <div class="twr-date-picker-body" data-ng-switch data-on="settings.currentView">
+            <div class="twr-time-view" data-ng-switch-when="time">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="" class="chevrons" data-ng-click="nextHour()">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </td>
+                            <td class="time-spacer-col"></td>
+                            <td>
+                                <a href="" class="chevrons" data-ng-click="nextMinute()">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" max="23" data-ng-model="date.hour" /></td>
+                            <td class="time-spacer-col">:</td>
+                            <td><input type="text" max="59" data-ng-model="date.minute" /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="" class="chevrons" data-ng-click="previousHour()">
+                                    <i class="fa fa-chevron-down"></i>
+                                </a>
+                            </td>
+                            <td class="time-spacer-col"></td>
+                            <td>
+                                <a href="" class="chevrons" data-ng-click="previousMinute()">
+                                    <i class="fa fa-chevron-down"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="twr-view-month" data-ng-switch-when="month">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-ng-repeat="day in days">{{day}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="week in weeks">
+                            <td data-ng-repeat="day in week"
+                                data-ng-class="{'other-month': day.otherMonth, 'now': day.now, 'selected': day.selected}"
+                                data-ng-click="selectDate(day.date)">
+                                {{day.day}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="twr-view-year" data-ng-switch-when="year">
+                <table>
+                    <tbody>
+                        <tr data-ng-repeat="monthGroup in months">
+                            <td data-ng-repeat="month in monthGroup"
+                                data-ng-class="{'now': month.now, 'selected': month.selected}"
+                                data-ng-click="selectMonth(month.number)">
+                                {{month.name}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="twr-date-picker-footer">
+            <div class="twr-date-picker-button-panel" data-ng-show="settings.showClearButton">
+                <button type="button" data-ng-click="clearModel()">Clear Date/Time</button>
+            </div>
         </div>
     </div>
 
-    <div></div>
-
-    <div class="twr-date-picker-body" data-ng-switch data-on="settings.currentView">
-        <div class="twr-time-view" data-ng-switch-when="time">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="" class="chevrons" data-ng-click="nextHour()">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                        </td>
-                        <td class="time-spacer-col"></td>
-                        <td>
-                            <a href="" class="chevrons"  data-ng-click="nextMinute()">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" max="23" data-ng-model="date.hour" /></td>
-                        <td class="time-spacer-col">:</td>
-                        <td><input type="text" max="59" data-ng-model="date.minute" /></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="" class="chevrons"  data-ng-click="previousHour()">
-                                <i class="fa fa-chevron-down"></i>
-                            </a>
-                        </td>
-                        <td class="time-spacer-col"></td>
-                        <td>
-                            <a href="" class="chevrons" data-ng-click="previousMinute()">
-                                <i class="fa fa-chevron-down"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="twr-view-month" data-ng-switch-when="month">
-            <table>
-                <thead>
-                    <tr>
-                        <th data-ng-repeat="day in days">{{day}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr data-ng-repeat="week in weeks">
-                        <td data-ng-repeat="day in week"
-                            data-ng-class="{'other-month': day.otherMonth, 'now': day.now, 'selected': day.selected}"
-                            data-ng-click="selectDate(day.date)">
-                            {{day.day}}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="twr-view-year" data-ng-switch-when="year">
-            <table>
-                <tbody>
-                    <tr data-ng-repeat="monthGroup in months">
-                        <td data-ng-repeat="month in monthGroup"
-                            data-ng-class="{'now': month.now, 'selected': month.selected}"
-                            data-ng-click="selectMonth(month.number)">
-                            {{month.name}}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-    </div>
-    <div class="twr-date-picker-footer">
-        <div class="twr-date-picker-button-panel" data-ng-show="settings.showClearButton">
-            <button type="button" data-ng-click="clearModel()">Clear Date/Time</button>
-        </div>
-    </div>
+    <input data-ng-click="twrDateInputClick()" value="{{date.selected | date: dateFormat}}" readonly />
 </div>

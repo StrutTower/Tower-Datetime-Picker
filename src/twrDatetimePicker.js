@@ -4,15 +4,13 @@
         .module('twrDatetimePicker', [])
         .directive('twrDatetimePicker', twrDatetimePicker);
 
-    twrDatetimePicker.$inject = ['$compile', '$document', '$templateCache', '$http'];
+    twrDatetimePicker.$inject = ['$compile', '$document', '$templateCache', '$http', '$window'];
 
-    function twrDatetimePicker($compile, $document, $templateCache, $http) {
+    function twrDatetimePicker($compile, $document, $templateCache, $http, $window) {
         return {
             restrict: 'A',
             require: 'ngModel',
-            template:   '<div class="twr-date-picker-template">' +
-                            '<input data-ng-click="twrDateInputClick()" value="{{date.selected | date: dateFormat}}" readonly />' +
-                        '</div>',
+            templateUrl: 'templates/twrDatePicker.html',
             replace: true,
             scope: {
                 ngModel: '='
@@ -31,8 +29,8 @@
                     autoClose: false
                 }
                 
+                setDynamicStyling()
                 getArgumentSettings();
-                appendTemplate()
                 
                 if (scope.ngModel) {
                     scope.date.selected = new Date(scope.ngModel);
@@ -397,20 +395,48 @@
                 }
                 //#endregion
 
-                function appendTemplate() {
-                    //Pull template from AngularJS template cache
-                    var template = $templateCache.get('templates/twrDatePicker.html')
-                    element.addClass('hide-picker');
-                    generateCurrentView();
-                    element.append($compile(template)(scope));
+                function setDynamicStyling() {
+                    //Get the height of the input and offsets the picker below it
+                    var height = element[0].offsetHeight;
 
-                    ////Pull template from HTML file
-                    //var template = $http.get('Views/Partials/twrDatePicker.html').then(function (success) {
-                    //    var template = success.data;
-                    //    element.addClass('hide-picker');
-                    //    generateCurrentView();
-                    //    element.append($compile(template)(scope));
-                    //});
+                    var picker;
+                    angular.forEach(element.children(), function (child) {
+                        var angularChild = angular.element(child);
+                        if (angularChild.hasClass('twr-date-picker-container')) {
+                            picker = angularChild;
+                        }
+                    });
+                    picker.css('margin-top', height + 'px');
+
+                    checkInputSize()
+                    angular.element($window).bind('resize', checkInputSize);
+                }
+
+                function checkInputSize() {
+                    var picker;
+                    var input;
+                    angular.forEach(element.children(), function (child) {
+                        var angularChild = angular.element(child);
+                        if (angularChild.hasClass('twr-date-picker-container')) {
+                            picker = angularChild;
+                        }
+                        if (angularChild.hasClass('twr-date-picker-input')) {
+                            input = angularChild;
+                        }
+                    });
+
+                    var screenWidth = window.innerWidth;
+                    var inputWidth = input[0].offsetWidth;
+                    var inputOffset = input[0].getBoundingClientRect().left;
+
+                    var diff = inputOffset - (inputWidth / 1.2)
+
+                    if (inputOffset > (screenWidth / 2)) {
+                        picker.css('left', diff + 'px');
+                    }
+                    else {
+                        picker.css('left', 'auto');
+                    }
                 }
 
                 function getArgumentSettings() {
@@ -479,6 +505,7 @@
 
     function addTemplate($templateCache) {
         $templateCache.put('templates/twrDatePicker.html',
+        '<div class="twr-date-picker-template hide-picker">' +
             '<div class="twr-date-picker-container">'+
             '    <div class="twr-date-picker-header">'+
             '        <div class="twr-date-picker-header-button-left" data-ng-hide="settings.currentView == \'time\'">'+
@@ -587,6 +614,9 @@
             '            <button type="button" data-ng-click="clearModel()">Clear Date/Time</button>'+
             '        </div>'+
             '    </div>'+
-            '</div>');
+            '</div>' +
+
+            '<input class="twr-date-picker-input" data-ng-click="twrDateInputClick()" value="{{date.selected | date: dateFormat}}" readonly />' +
+        '</div>');
     }
 })();
