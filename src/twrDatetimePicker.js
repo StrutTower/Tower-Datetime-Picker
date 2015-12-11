@@ -479,6 +479,9 @@
 
                 function clearModel() {
                     scope.date.selected = null;
+                    if (scope.settings.autoClose) {
+                        hidePicker();
+                    }
                     updateNgModel();
                 }
 
