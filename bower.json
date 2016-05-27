@@ -1,17 +1,13 @@
 {
-  "name": "Tower-Datetime-Picker",
+  "name": "tower-datetime-picker",
   "authors": [ "StrutTower" ],
-  "description": "A simplte datetime picker for AngularJS",
+  "description": "A simple datetime picker for AngularJS",
   "main": [
-    "src/twrDatetimePicker.js",
-    "src/twrDatetimePicker.css"
+    "dist/twrDatetimePicker.js",
+    "dist/twrDatetimePicker.css"
   ],
   "dependencies": {
-    "angular": "*",
-    "font-awesome": "*"
+    "angular": "^1.5.5"
   },
-  "ignore": [
-    "demo/**"
-  ],
   "private": true
 }

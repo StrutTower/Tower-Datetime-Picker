@@ -1,0 +1,288 @@
+﻿$backgroundColor:#ffffff !default;
+$fontColor:#333 !default;
+$buttonHoverBackground: #e3e3e3 !default;
+$defaultBorderRadius: 5px !default;
+$activeBackgroundColor:#337ab7 !default;
+$activeFontColor:#ffffff !default;
+$dateNowFontColor:#000000 !default;
+$dateNowBackgroundColor:#bfbfbf !default;
+$otherMonthDateOpacity:0.7;
+
+
+.twr-date-picker-template {
+    display: inline-block;
+    color: $fontColor;
+    position: relative;
+
+    .twr-date-picker-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        min-width: 230px;
+        padding: 5px 0;
+        margin: 2px 0 0;
+        background: $backgroundColor;
+        border-radius: $defaultBorderRadius;
+        box-shadow: 2px 2px 10px #444;
+
+        table.twr-date-picker-header {
+            width: 100%;
+
+            .twr-date-picker-title {
+                width: 70%;
+                text-align: center;
+
+                & > div {
+                    padding: 10px 0;
+                    height:100%;
+                    cursor: pointer;
+                    border-radius: $defaultBorderRadius;
+
+                    &:hover {
+                        background: $buttonHoverBackground;
+                    }
+                }
+            }
+
+            .twr-date-picker-header-button-left, .twr-date-picker-header-button-right {
+                width: 15%;
+
+                a.chevrons {
+                    padding: 14px;
+                    display: block;
+                    border-radius: $defaultBorderRadius;
+
+                    &:hover {
+                        background: $buttonHoverBackground;
+                    }
+                }
+            }
+        }
+
+
+        .twr-date-picker-body {
+            display: inline-block;
+            width: 100%;
+
+            .twr-view-month table, .twr-view-year table {
+                width: 100%;
+                border-collapse: collapse;
+                text-align: center;
+
+                thead tr th {
+                    border-bottom: #ccc solid 1px;
+                    text-align:center;
+                    font-weight:bold;
+                }
+
+                td {
+                    border-radius: $defaultBorderRadius;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: $buttonHoverBackground;
+                        border-radius: $defaultBorderRadius;
+                    }
+
+                    &.now {
+                        color: $dateNowFontColor;
+                        background: $dateNowBackgroundColor;
+                    }
+
+                    &.selected {
+                        color: $activeFontColor;
+                        background: $activeBackgroundColor;
+                    }
+
+                    &.other-month {
+                        opacity:$otherMonthDateOpacity;
+                    }
+                }
+            }
+
+            .twr-view-month table {
+                th, td {
+                    font-weight: normal;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    width:14.28%;
+                }
+            }
+
+            .twr-view-year table {
+                th, td {
+                    font-weight: normal;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    width:25%;
+                }
+            }
+
+            .twr-time-view table {
+                width: 130px;
+                margin: 0 auto;
+                text-align: center;
+
+                a.chevrons {
+                    padding: 0.7em 0;
+                    display: inline-block;
+                    width: 50px;
+
+                    &:hover {
+                        background: $buttonHoverBackground;
+                        border-radius: $defaultBorderRadius;
+                    }
+                }
+
+                td.time-spacer-col {
+                    width: 5px;
+                    padding: 0 2px;
+                    text-align:center;
+                }
+
+                input {
+                    text-align: center;
+
+                    &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+                        -moz-appearance: none;
+                        -webkit-appearance: none;
+                        appearance: none;
+                        margin: 0;
+                    }
+
+                    &.ng-invalid {
+                        border-color:red;
+                        box-shadow:inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(255,0,0,0.5)
+                    }
+                }
+            }
+        }
+
+        .twr-date-picker-footer .twr-date-picker-button-panel {
+            text-align: center;
+
+            button {
+                margin: 0 auto;
+                font-family: inherit;
+                font-size: 100%;
+                padding: 0.5em 1em;
+                color: $fontColor;
+                border: 1px solid #ccc;
+                background: $backgroundColor;
+                text-decoration: none;
+                border-radius: $defaultBorderRadius;
+                outline: none;
+                display: inline-block;
+                zoom: 1;
+                line-height: normal;
+                white-space: nowrap;
+                vertical-align: middle;
+                text-align: center;
+                cursor: pointer;
+                -webkit-user-drag: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                -moz-transition: background 0.2s ease-in-out, border-color 0.3s ease-in-out;
+                -o-transition: background 0.2s ease-in-out, border-color 0.3s ease-in-out;
+                -webkit-transition: background 0.2s ease-in-out, border-color 0.3s ease-in-out;
+                transition: background 0.2s ease-in-out, border-color 0.3s ease-in-out;
+
+                &:hover, &:focus {
+                    background: #ebebeb;
+                    border-color: #adadad;
+                    color: #333;
+                    text-decoration: none;
+                }
+
+                &:active {
+                    outline: none;
+                    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+                }
+
+                &:visited {
+                    color: #333;
+                }
+
+                &:disabled, &:disabled:hover, &:disabled:active, &:disabled:focus {
+                    background: #e6e6e6;
+                    border-color: #ccc;
+                    color: gray;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+    .twr-chevron-left, .twr-chevron-right, .twr-chevron-up, .twr-chevron-down {
+        border-left: 2px solid $fontColor;
+        border-top: 2px solid $fontColor;
+        height: 10px;
+        width: 10px;
+        display: block;
+    }
+
+    .twr-chevron-left {
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        margin-left: 6px;
+    }
+
+    .twr-chevron-right {
+        -moz-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+        -o-transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+        margin-left: 1px;
+    }
+
+    .twr-chevron-up {
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        margin-left: 19px;
+        margin-top: 5px;
+    }
+
+    .twr-chevron-down {
+        -moz-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+        -o-transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+        margin-left: 20px;
+        margin-bottom: 5px;
+    }
+}
+
+.twr-date-picker-template.hide-picker .twr-date-picker-container {
+    display: none;
+}
+
+@media screen and (min-width:400px) {
+    .twr-date-picker-template {
+        /*display:inline-block*/
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .twr-date-picker-template {
+
+        .twr-date-picker-container {
+            position:absolute;
+            width:300px;
+            left:0;
+        }
+    }
+}
