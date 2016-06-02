@@ -29,3 +29,6 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 bower_components/**
 node_modules
+*.sln
+.vs/*
+Web.config

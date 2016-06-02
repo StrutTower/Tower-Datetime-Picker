@@ -94,7 +94,7 @@
                     <tbody>
                         <tr data-ng-repeat="week in weeks">
                             <td data-ng-repeat="day in week"
-                                data-ng-class="{'other-month': day.otherMonth, 'now': day.now, 'selected': day.selected}"
+                                data-ng-class="{'other-month': day.otherMonth, 'now': day.now, 'selected': day.selected, 'disabled': minDateCompare(day.date) || maxDateCompare(day.date)}"
                                 data-ng-click="selectDate(day.date)"
                                 data-ng-bind="day.day">
                             </td>

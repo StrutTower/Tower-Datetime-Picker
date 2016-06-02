@@ -98,6 +98,16 @@ $otherMonthDateOpacity:0.7;
                     &.other-month {
                         opacity:$otherMonthDateOpacity;
                     }
+
+                    &.disabled {
+                        background: transparent;
+                        opacity: 0.5;
+                        cursor:default;
+                    }
+
+                    &.other-month.disabled {
+                        opacity:0.3;
+                    }
                 }
             }
 

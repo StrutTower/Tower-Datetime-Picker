@@ -58,6 +58,12 @@
             background: #337ab7; }
           .twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table td.other-month, .twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-year table td.other-month {
             opacity: 0.7; }
+          .twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table td.disabled, .twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-year table td.disabled {
+            background: transparent;
+            opacity: 0.5;
+            cursor: default; }
+          .twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table td.other-month.disabled, .twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-year table td.other-month.disabled {
+            opacity: 0.3; }
       .twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table th, .twr-date-picker-template .twr-date-picker-container .twr-date-picker-body .twr-view-month table td {
         font-weight: normal;
         padding-top: 5px;

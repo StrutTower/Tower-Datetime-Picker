@@ -48,42 +48,38 @@
 
             <div class="form-group">
                 <label>Date and time with button:</label>
-                <div class="form-control-static">
-                    <data-twr-datetime data-ng-model="vm.dateButton">
-                        <button type="button" class="btn btn-primary">Select a Date and Time</button>
-                    </data-twr-datetime>
-                    <span data-ng-bind="vm.dateButton | date: 'medium'"></span>
-                </div>
+                <data-twr-datetime data-ng-model="vm.dateButton">
+                    <button type="button" class="btn btn-primary">Select a Date and Time</button>
+                </data-twr-datetime>
+                <span data-ng-bind="vm.dateButton | date: 'medium'"></span>
             </div>
 
             <div class="form-group">
                 <label>Date and time with button:</label>
-                <div class="form-control-static">
-                    <data-twr-datetime data-ng-model="vm.dateButton2">
-                        <button type="button" class="btn btn-default">
-                            <i class="fa fa-calendar"></i>
-                        </button>
-                    </data-twr-datetime>
-                    <span data-ng-switch="vm.dateButton2">
-                        <span data-ng-switch-when="undefined"><i style="opacity:0.75;">Selected a Date and Time</i></span>
-                        <span data-ng-switch-default data-ng-bind="vm.dateButton2 | date: 'M/d/yyyy HH:mm'"></span>
-                    </span>
-                </div>
+                <data-twr-datetime data-ng-model="vm.dateButton2">
+                    <button type="button" class="btn btn-default">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </data-twr-datetime>
+                <span data-ng-switch="vm.dateButton2">
+                    <span data-ng-switch-when="undefined"><i style="opacity:0.75;">Selected a Date and Time</i></span>
+                    <span data-ng-switch-default data-ng-bind="vm.dateButton2 | date: 'M/d/yyyy HH:mm'"></span>
+                </span>
             </div>
 
             <div class="form-group">
-                <label>Button with date label:</label>
-                <data-twr-datetime data-ng-model="vm.date3" class="form-control-static">
+                <label>Button with date/time label:</label>
+                <data-twr-datetime data-ng-model="vm.date3">
                     <button type="button" class="btn btn-success" data-ng-switch="vm.date3">
                         <span data-ng-switch-when="undefined">Select a Date and Time</span>
-                        <span data-ng-switch-default data-ng-bind="vm.date3 | date:'medium'"></span>
+                        <span data-ng-switch-default data-ng-bind="vm.date3 | date:'M/d/yyyy h:mm a'"></span>
                     </button>
                 </data-twr-datetime>
             </div>
 
             <div class="form-group">
                 <label>Button with 24 hour date label:</label>
-                <data-twr-datetime data-ng-model="vm.date4" class="form-control-static">
+                <data-twr-datetime data-ng-model="vm.date4">
                     <button type="button" class="btn btn-default" data-ng-switch="vm.date4">
                         <span data-ng-switch-when="undefined">Select a Date and Time</span>
                         <span data-ng-switch-default data-ng-bind="vm.date4 | date:'M/d/yyyy HH:mm'"></span>
@@ -91,10 +87,9 @@
                 </data-twr-datetime>
             </div>
 
-
             <div class="form-group">
                 <label>Date Only:</label>
-                <data-twr-datetime data-ng-model="vm.date5" data-date-only class="form-control-static">
+                <data-twr-datetime data-ng-model="vm.date5" data-date-only>
                     <button type="button" class="btn btn-default" data-ng-switch="vm.date5">
                         <span data-ng-switch-when="undefined">Select a Date</span>
                         <span data-ng-switch-default data-ng-bind="vm.date5 | date:'M/d/yyyy'"></span>
@@ -104,7 +99,7 @@
 
             <div class="form-group">
                 <label>Date Only with auto close:</label>
-                <data-twr-datetime data-ng-model="vm.date6" data-date-only data-date-autoclose class="form-control-static">
+                <data-twr-datetime data-ng-model="vm.date6" data-date-only data-date-autoclose>
                     <button type="button" class="btn btn-default" data-ng-switch="vm.date6">
                         <span data-ng-switch-when="undefined">Select a Date</span>
                         <span data-ng-switch-default data-ng-bind="vm.date6 | date:'M/d/yyyy'"></span>
@@ -114,7 +109,7 @@
 
             <div class="form-group">
                 <label>Time Only:</label>
-                <data-twr-datetime data-ng-model="vm.date7" data-time-only class="form-control-static">
+                <data-twr-datetime data-ng-model="vm.date7" data-time-only>
                     <button type="button" class="btn btn-default" data-ng-switch="vm.date7">
                         <span data-ng-switch-when="undefined">Select a Time</span>
                         <span data-ng-switch-default data-ng-bind="vm.date7 | date:'HH:mm'"></span>
@@ -124,10 +119,39 @@
 
             <div class="form-group">
                 <label>With Clear Model Button:</label>
-                <data-twr-datetime data-ng-model="vm.date8" data-show-clear-button class="form-control-static">
+                <data-twr-datetime data-ng-model="vm.date8" data-show-clear-button>
                     <button type="button" class="btn btn-default" data-ng-switch="vm.date8">
                         <span data-ng-switch-when="undefined">Select a Date and Time</span>
                         <span data-ng-switch-default data-ng-bind="vm.date8 | date:'M/d/yyyy HH:mm'"></span>
+                    </button>
+                </data-twr-datetime>
+            </div>
+
+            <div class="form-group">
+                <label>Limited Date Range:</label>
+                <data-twr-datetime data-ng-model="vm.limitedDate" data-min-date="vm.minDate" data-max-date="vm.maxDate">
+                    <button type="button" class="btn btn-default" data-ng-switch="vm.limitedDate">
+                        <span data-ng-switch-when="undefined">Select a Date and Time</span>
+                        <span data-ng-switch-default data-ng-bind="vm.limitedDate | date:'M/d/yyyy HH:mm'"></span>
+                    </button>
+                </data-twr-datetime>
+            </div>
+
+            <div class="form-group">
+                <label>Date Range:</label>
+                <data-twr-datetime data-ng-model="vm.startDate" data-max-date="vm.endDate" data-date-autoclose data-date-only>
+                    <button type="button" class="btn btn-default" data-ng-switch="vm.startDate">
+                        <span data-ng-switch-when="undefined">Select a Start Date and Time</span>
+                        <span data-ng-switch-default data-ng-bind="vm.startDate | date:'M/d/yyyy'"></span>
+                    </button>
+                </data-twr-datetime>
+
+                <span> to: </span>
+
+                <data-twr-datetime data-ng-model="vm.endDate" data-min-date="vm.startDate" data-date-autoclose data-date-only>
+                    <button type="button" class="btn btn-default" data-ng-switch="vm.endDate">
+                        <span data-ng-switch-when="undefined">Select a End Date and Time</span>
+                        <span data-ng-switch-default data-ng-bind="vm.endDate | date:'M/d/yyyy'"></span>
                     </button>
                 </data-twr-datetime>
             </div>
